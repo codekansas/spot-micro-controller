@@ -1,5 +1,5 @@
 import logging
-from typing import List, Optional
+from typing import List, Optional, Dict
 
 import busio
 from board import SCL, SDA
@@ -31,9 +31,9 @@ class ServoSet:
         self._pca.frequency = 50
 
         self._servo_ids = servo_ids
-        self._servos: List[Servo] = []
-        for servo_id in servo_ids:
-            self._servos.append(Servo(self._pca.channels[servo_id]))
+        self._servos: Dict[int, Servo] = {}
+        for i, servo_id in enumerate(servo_ids):
+            self._servos[i] = Servo(self._pca.channels[servo_id])
 
     @property
     def pca(self) -> PCA9685:
