@@ -12,8 +12,9 @@ def main() -> None:
     args = parser.parse_args()
 
     servo_set = ServoSet(servo_ids=[args.servo_id])
-    servo_set.set_angle(args.servo_id, args.angle)
-    time.sleep(args.wait)
+    for _ in range(10):
+        servo_set.set_angle(args.servo_id, args.angle)
+        time.sleep(args.wait / 10)
 
 
 if __name__ == "__main__":

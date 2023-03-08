@@ -39,6 +39,9 @@ class ServoSet:
     def pca(self) -> PCA9685:
         return self._pca
 
+    def __del__(self) -> None:
+        self._pca.deinit()
+
     @property
     def servo_ids(self) -> List[int]:
         return self._servo_ids
