@@ -1,0 +1,39 @@
+[build-system]
+
+requires = [
+    "setuptools",
+    "wheel",
+    "setuptools-scm",
+]
+
+[project]
+
+name = "spot-micro-pi"
+description = "Code for running Spot Micro on Raspberry Pi"
+version = "0.0.0+auto.0"
+readme = "README.rst"
+authors = [
+    {name = "Benjamin Bolte", email = "ben@bolte.cc"}
+]
+urls = {Homepage = "https://github.com/codekansas/spot-micro-controller"}
+keywords = [
+    "spot-micro",
+]
+license = {text = "GPL-3.0"}
+classifiers = [
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries",
+    "Topic :: Software Development :: Embedded Systems",
+    "Topic :: System :: Hardware",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["dependencies", "optional-dependencies"]
+
+[tool.setuptools]
+
+py-modules = ["spot_micro_pi"]
+
+[tool.setuptools.dynamic]
+
+dependencies = {file = ["requirements.txt"]}
