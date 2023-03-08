@@ -33,7 +33,7 @@ class ServoSet:
         self._servo_ids = servo_ids
         self._servos: List[Servo] = []
         for servo_id in servo_ids:
-            self._servos.append(Servo(PCA9685(self._pca.channels[servo_id])))
+            self._servos.append(Servo(self._pca.channels[servo_id]))
 
     @property
     def pca(self) -> PCA9685:
