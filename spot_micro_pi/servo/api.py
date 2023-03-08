@@ -32,8 +32,8 @@ class ServoSet:
 
         self._servo_ids = servo_ids
         self._servos: Dict[int, Servo] = {}
-        for i, servo_id in enumerate(servo_ids):
-            self._servos[i] = Servo(self._pca.channels[servo_id])
+        for servo_id in servo_ids:
+            self._servos[servo_id] = Servo(self._pca.channels[servo_id])
 
     @property
     def pca(self) -> PCA9685:
